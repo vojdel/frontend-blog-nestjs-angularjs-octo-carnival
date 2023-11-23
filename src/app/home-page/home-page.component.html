@@ -1,1 +1,7 @@
-<p>home-page works!</p>
+<main class="grid grid-cols-3 gap-4 min-w-full min-h-full p-10 bg-gray-500">
+  @for (item of items; track items){
+
+  <app-post-card>{{ item }}</app-post-card>
+
+  }
+</main>
