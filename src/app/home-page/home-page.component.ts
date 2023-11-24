@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostCardComponent } from '../post-card/post-card.component';
-import {
-  Router,
-  RouterLink,
-  RouterModule,
-  RouterOutlet,
-} from '@angular/router';
-import { routes } from '../app.routes';
+import { RouterOutlet } from '@angular/router';
+import { PostCard } from '../core/interfaces/post-card';
+import { PostsService } from '../core/services/posts.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
@@ -15,8 +12,16 @@ import { routes } from '../app.routes';
   imports: [CommonModule, PostCardComponent, RouterOutlet],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
+  providers: [PostsService],
 })
-export class HomePageComponent {
-  public items = [1, 2, 3, 4, 5, 6];
-  constructor(private readonly router: Router) {}
+export class HomePageComponent implements OnInit {
+  items: PostCard[] = [];
+
+  constructor(private readonly postsService: PostsService) {}
+
+  ngOnInit(): void {
+    this.postsService.getPosts().subscribe((res) => {
+      this.items = [...res];
+    });
+  }
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Router, RouterModule } from '@angular/router';
+import { PostCard } from '../core/interfaces/post-card';
 
 @Component({
   selector: 'app-post-card',
@@ -12,6 +13,8 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './post-card.component.css',
 })
 export class PostCardComponent implements OnInit {
+  @Input() item!: PostCard; // decorate the property with @Input()
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

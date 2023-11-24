@@ -21,18 +21,16 @@
   </mat-card-actions>
 </mat-card>}}-->
 <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-  <img
-    class="w-full"
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Sunset in the mountains"
-  />
+  <img class="w-full" src="{{ item.urlImage }}" alt="Sunset in the mountains" />
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <div class="font-bold text-xl mb-2 capitalize">{{ item.title }}</div>
     <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-      quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-      nihil.
-      <a class="decoration-sky-500" routerLink="/post/1">read more...</a>.
+      {{ item.body }}
+    </p>
+    <p class="text-blue-700 text-base">
+      <a class="decoration-sky-500" routerLink="/post/{{ item.id }}"
+        >read more...</a
+      >.
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
