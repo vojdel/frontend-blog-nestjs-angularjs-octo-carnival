@@ -17,11 +17,18 @@ export class PostCardComponent implements OnInit {
 
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.item.title = this.limitCharacter(this.item.title, 25);
+    this.item.body = this.limitCharacter(this.item.body, 150);
+  }
 
   changeRoute(evt: MouseEvent, post: string) {
     evt.preventDefault();
 
     this.router.navigate(['post', post]);
+  }
+
+  limitCharacter(body: string, limit: number): string {
+    return body.substring(0, limit);
   }
 }
