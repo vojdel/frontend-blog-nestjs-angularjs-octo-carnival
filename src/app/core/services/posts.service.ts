@@ -14,4 +14,8 @@ export class PostsService {
   getPosts(): Observable<PostCard[]> {
     return this.http.get<PostCard[]>(this.#path);
   }
+
+  getPost(post: string): Observable<PostCard> {
+    return this.http.get<PostCard>(`${this.#path}/${post}`);
+  }
 }
