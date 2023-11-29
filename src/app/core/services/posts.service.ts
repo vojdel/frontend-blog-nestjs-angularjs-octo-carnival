@@ -11,8 +11,10 @@ export class PostsService {
 
   constructor(private readonly http: HttpClient) {}
 
-  getPosts(): Observable<PostCard[]> {
-    return this.http.get<PostCard[]>(this.#path);
+  getPosts(currentPage: number, itemsPerPage: number): Observable<PostCard[]> {
+    return this.http.get<PostCard[]>(
+      `${this.#path}?_page=${currentPage}&_limit=${itemsPerPage}`
+    );
   }
 
   getPost(post: string): Observable<PostCard> {

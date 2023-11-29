@@ -1,41 +1,33 @@
-<article class="flex max-w-xl flex-col items-start justify-between">
-  <div class="flex items-center gap-x-4 text-xs">
-    <time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
-    <a
-      routerLink="/post/{{ item.id }}"
-      class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-      >Marketing</a
-    >
-  </div>
-  <div class="group relative">
-    <h3
-      class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600"
-    >
-      <a routerLink="/post/{{ item.id }}">
-        <span class="absolute inset-0"></span>
-        {{ item.title }}
-      </a>
-    </h3>
-    <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-      {{ item.body }}
-    </p>
-  </div>
-  <div class="relative mt-8 flex items-center gap-x-4">
-    <img
-      src="{{ item.urlImage }}"
-      alt=""
-      class="h-10 w-10 rounded-full bg-gray-50"
-    />
-    <div class="text-sm leading-6">
-      <p class="font-semibold text-gray-900">
-        <a routerLink="/users/{{ item.userId }}">
-          <span class="absolute inset-0"></span>
-          Michael Foster
-        </a>
+<div class="block rounded w-full lg:flex mb-10">
+  <div
+    class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+    style="
+      background-image: url('{{ item.urlImage }}');
+    "
+    title="deit is very important"
+  ></div>
+  <div
+    class="bg-white rounded px-4 flex flex-col justify-between leading-normal"
+  >
+    <div>
+      <div class="mt-3 md:mt-0 text-gray-700 font-bold text-2xl mb-2">
+        <a routerLink="/post/{{ item.id }}">{{ item.title }}</a>
+      </div>
+      <p class="text-gray-700 text-base">
+        {{ item.body }}
       </p>
-      <p class="text-gray-600">Co-Founder / CTO</p>
+    </div>
+    <div class="flex mt-3">
+      <img
+        src="https://randomuser.me/api/portraits/men/86.jpg"
+        class="h-10 w-10 rounded-full mr-2 object-cover"
+      />
+      <div>
+        <p class="font-semibold text-gray-700 text-sm capitalize">
+          <a routerLink="/user/{{ item.userId }}">eduard franz</a>
+        </p>
+        <p class="text-gray-600 text-xs">14 Aug</p>
+      </div>
     </div>
   </div>
-</article>
-
-<!-- More posts... -->
+</div>
