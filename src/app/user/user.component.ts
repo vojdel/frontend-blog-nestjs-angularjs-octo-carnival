@@ -6,8 +6,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
 export class UserComponent {
+  open: boolean = false;
 
+  changeOpen(val: boolean = !this.open): void {
+    this.open = val;
+  }
 }
